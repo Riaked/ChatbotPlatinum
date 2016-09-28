@@ -100,7 +100,7 @@ public class NocklesMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		school = new HaoSchool();
+		//school = new HaoSchool();
 	}
 
 	public static void demonstrateStringMethods(){
