@@ -21,15 +21,14 @@ public class NocklesMain {
 	}
 	
 	public static void promptName(){
-		print("Enter your name");
+		print("Ey there sonny, I'm GrandpaBot. What's your name?");
 		user = input.nextLine();
-		print("Glad to meet you "+user+". For the rest of time, I will call you "+user+". You may call me Computer. We should become friends.");
+		print("Good ta meet cha "+user+".");
 	}
 	
 	public static void promptForever(){
 		inMainLoop = true;
 		while (inMainLoop){
-			print("Hi, "+user+". How are you?");
 			response = promptInput();
 			if(findKeyword(response, "good", 0) >= 0){
 				print("That's wonderful. So glad you feel good.");
@@ -40,8 +39,9 @@ public class NocklesMain {
 				school.talk();
 			}
 			
+			
 			else{
-				print("I don't understand");
+				print("You sound like those damn Nazi's. Always talking gibberish.");
 			}
 		}
 	}
@@ -100,25 +100,7 @@ public class NocklesMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		//school = new HaoSchool();
-	}
-
-	public static void demonstrateStringMethods(){
-			String text1 = new String("Hello World");
-			String text2 = "Hello World";//same as above code
-			
-			if (text1.equals(text2)){
-				print("These strings are equal:");
-			}
-				print(text1);
-				print(text2);
-				
-				String word1 = "Aardvark";
-				String word2 = "Zyzzyva";
-				
-				if (word1.compareTo(word2) < 0) {
-					print("word 1 comes before word 2");
-				}
+		school = new HaoSchool();
 	}
 	
 	public static void print(String s){
