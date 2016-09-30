@@ -2,13 +2,15 @@ package groupFiles;
 
 import java.util.Scanner;
 
-public class NocklesMain {
+public class GrandpaMain {
 
 	static String response;
 	static boolean inMainLoop;
 	static Scanner input;
 	static String user;
-	static Chatbot school;
+	static GrandpaBot school;
+	static GrandpaBot life;
+	static GrandpaBot hello;
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
@@ -23,22 +25,33 @@ public class NocklesMain {
 	public static void promptName(){
 		print("Ey there sonny, I'm GrandpaBot. What's your name?");
 		user = input.nextLine();
-		print("Good ta meet cha "+user+".");
+		print("Good ta meet cha "+user+". How are ya doing?");
 	}
-	
+	public static void promptNameAgain(){
+		print("What did you say your name was again?");
+		user = input.nextLine();
+		print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+user+"?");
+	}
+	public static void promptLife(){
+		print("Sorry sonny, I've told you more than I can remember already");
+	}
 	public static void promptForever(){
 		inMainLoop = true;
 		while (inMainLoop){
 			response = promptInput();
-			if(findKeyword(response, "good", 0) >= 0){
+			if(findKeyword(response, "good", 0) >= 0 ){
 				print("That's wonderful. So glad you feel good.");
 			}
-			else if(response.indexOf("school") >= 0){
-				print("School is great! Tell me about school.");
+			else if(response.indexOf("life") >= 0){
+				print("My life isn't that great to talk about but here goes");
 				inMainLoop = false;
-				school.talk();
+				life.talk();
 			}
-			
+			else if(response.indexOf("hello") >= 0 ){
+				print("yes hello again sonny");
+				inMainLoop = false;
+				hello.talk();
+			}
 			
 			else{
 				print("You sound like those damn Nazi's. Always talking gibberish.");
@@ -48,6 +61,7 @@ public class NocklesMain {
 	
 	public static int findKeyword(String searchString, String keyword, int startpsn) {
 		searchString = searchString.trim();
+		searchString = searchString.toLowerCase();
 		keyword = keyword.toLowerCase();
 		System.out.println("The phrase is "+searchString);
 		System.out.println("The keyword is "+keyword);
@@ -73,7 +87,7 @@ public class NocklesMain {
 				System.out.println("Did not find "+keyword+", checking position "+psn);
 			}
 		}
-			return -1;
+		return psn;
 	}
 
 	private static boolean noNegations(String searchString, int psn) {
@@ -100,7 +114,9 @@ public class NocklesMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		school = new HaoSchool();
+		school = new GrandpaSchool();
+		life = new GrandpaLife();
+		hello = new GrandpaHello();
 	}
 	
 	public static void print(String s){
@@ -152,3 +168,4 @@ public class NocklesMain {
 			return currentCut;
 	}
 }
+
