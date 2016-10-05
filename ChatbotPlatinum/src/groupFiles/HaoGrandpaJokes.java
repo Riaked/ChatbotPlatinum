@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class GrandpaJokes extends Object implements GrandpaBot {
+public class HaoGrandpaJokes extends Object implements HaoGrandpaBot {
 	private boolean inJokeLoop;
 	
 	private String jokesResponse;
@@ -8,13 +8,13 @@ public class GrandpaJokes extends Object implements GrandpaBot {
 	public void talk(){
 		inJokeLoop = true;
 		while (inJokeLoop){
-			GrandpaMain.print("(Type 'quit' to go back.)");
-			jokesResponse = GrandpaMain.promptInput();
+			HaoGrandpaMain.print("(Type 'quit' to go back.)");
+			jokesResponse = HaoGrandpaMain.promptInput();
 			if (jokesResponse.indexOf("quit") >= 0){
 				inJokeLoop = false;
-				GrandpaMain.promptForever();
+				HaoGrandpaMain.promptForever();
 			}
-			GrandpaMain.print("");
+			HaoGrandpaMain.print("");
 			
 		}
 	}
@@ -22,13 +22,13 @@ public class GrandpaJokes extends Object implements GrandpaBot {
 		String [] triggers = {"joke", "funny", "laugh"};
 		//idea:create a for loop to iterate
 		
-		if (GrandpaMain.findKeyword(userInput, "joke", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "joke", 0) >= 0){
 			return true;
 		}
-		if (GrandpaMain.findKeyword(userInput, "funny", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "funny", 0) >= 0){
 			return true;
 		}
-		if (GrandpaMain.findKeyword(userInput, "laugh", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "laugh", 0) >= 0){
 			return true;
 		}
 		return false;

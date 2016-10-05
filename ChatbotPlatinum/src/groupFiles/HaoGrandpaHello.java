@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class GrandpaHello  extends Object implements GrandpaBot{
+public class HaoGrandpaHello  extends Object implements HaoGrandpaBot{
 
 	private String helloResponse;
 	private boolean inHelloLoop;
@@ -12,7 +12,7 @@ public class GrandpaHello  extends Object implements GrandpaBot{
 	
 	private int helloCount;
 	
-	public GrandpaHello(){
+	public HaoGrandpaHello(){
 		helloCount = 0;
 	}
 	@Override
@@ -21,12 +21,12 @@ public class GrandpaHello  extends Object implements GrandpaBot{
 		while (inHelloLoop){
 			helloCount++;
 			printResponse();//helper method
-			helloResponse = GrandpaMain.promptInput();
+			helloResponse = HaoGrandpaMain.promptInput();
 			
 			//negate use
 			if (!isTriggered(helloResponse)){
 				inHelloLoop = false;
-				GrandpaMain.promptForever();
+				HaoGrandpaMain.promptForever();
 				}
 			}
 		}	
@@ -34,26 +34,26 @@ public class GrandpaHello  extends Object implements GrandpaBot{
 	private void printResponse() {
 		if (helloCount > 3){
 			int responseSelection = (int) (Math.random()* angryHelloResponses.length);
-			GrandpaMain.print(angryHelloResponses[responseSelection]);
+			HaoGrandpaMain.print(angryHelloResponses[responseSelection]);
 			inHelloLoop = false;
 			helloCount = 0;
-			GrandpaMain.promptNameAgain();
+			HaoGrandpaMain.promptNameAgain();
 		}
 		else {
 			int responseSelection = (int) (Math.random()* calmHelloResponses.length);
-			GrandpaMain.print(calmHelloResponses[responseSelection]);
+			HaoGrandpaMain.print(calmHelloResponses[responseSelection]);
 		}
 		
 	}
 	@Override
 	public boolean isTriggered(String userInput) {
-		if (GrandpaMain.findKeyword(userInput, "hello", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "hello", 0) >= 0){
 			return true;
 		}
-		if (GrandpaMain.findKeyword(userInput, "hi", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "hi", 0) >= 0){
 			return true;
 		}
-		if (GrandpaMain.findKeyword(userInput, "hey", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "hey", 0) >= 0){
 			return true;
 		}
 		return false;

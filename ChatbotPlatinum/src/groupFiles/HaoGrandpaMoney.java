@@ -1,9 +1,9 @@
 package groupFiles;
 
-import groupFiles.GrandpaBot;
-import groupFiles.GrandpaMain;
+import groupFiles.HaoGrandpaBot;
+import groupFiles.HaoGrandpaMain;
 
-public class GrandpaMoney extends Object implements GrandpaBot {
+public class HaoGrandpaMoney extends Object implements HaoGrandpaBot {
 	private boolean inMoneyLoop;
 	
 	private String moneyResponse;
@@ -11,13 +11,13 @@ public class GrandpaMoney extends Object implements GrandpaBot {
 	public void talk(){
 		inMoneyLoop = true;
 		while (inMoneyLoop){
-			GrandpaMain.print("(Type 'quit' to go back.)");
-			moneyResponse = GrandpaMain.promptInput();
+			HaoGrandpaMain.print("(Type 'quit' to go back.)");
+			moneyResponse = HaoGrandpaMain.promptInput();
 			if (moneyResponse.indexOf("quit") >= 0){
 				inMoneyLoop = false;
-				GrandpaMain.promptForever();
+				HaoGrandpaMain.promptForever();
 			}
-			GrandpaMain.print("I have this thing called pension. I have more money than I know what"
+			HaoGrandpaMain.print("I have this thing called pension. I have more money than I know what"
 					+ "do with.");
 			
 		}
@@ -25,7 +25,7 @@ public class GrandpaMoney extends Object implements GrandpaBot {
 	public boolean isTriggered(String userInput) {
 		String [] triggers = {"money",};
 		//idea:create a for loop to iterate
-		if (GrandpaMain.findKeyword(userInput, "money", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "money", 0) >= 0){
 			return true;
 		}
 		

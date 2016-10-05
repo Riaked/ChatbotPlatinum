@@ -2,15 +2,15 @@ package groupFiles;
 
 import java.util.Scanner;
 
-public class GrandpaMain {
+public class HaoGrandpaMain {
 
 	static String response;
 	static boolean inMainLoop;
 	static Scanner input;
 	static String user;
-	static GrandpaBot school;
-	static GrandpaBot life;
-	static GrandpaBot hello;
+	static HaoGrandpaBot school;
+	static HaoGrandpaBot life;
+	static HaoGrandpaBot hello;
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
@@ -114,9 +114,9 @@ public class GrandpaMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		school = new GrandpaSchool();
-		life = new GrandpaLife();
-		hello = new GrandpaHello();
+		school = new HaoGrandpaSchool();
+		life = new HaoGrandpaLife();
+		hello = new HaoGrandpaHello();
 	}
 	
 	public static void print(String s){

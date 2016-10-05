@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class GrandpaLife extends Object implements GrandpaBot {
+public class HaoGrandpaLife extends Object implements HaoGrandpaBot {
 	private boolean inLifeLoop;
 	private String lifeResponses;
 	
@@ -11,7 +11,7 @@ public class GrandpaLife extends Object implements GrandpaBot {
 			"I have no more stories to tell, sonny"};
 	
 	private int lifeCount;
-	public GrandpaLife(){
+	public HaoGrandpaLife(){
 		lifeCount = 0;
 	}
 	
@@ -20,37 +20,37 @@ public class GrandpaLife extends Object implements GrandpaBot {
 		while (inLifeLoop){
 			lifeCount++;
 			printResponse();//helper method
-			lifeResponses = GrandpaMain.promptInput();
+			lifeResponses = HaoGrandpaMain.promptInput();
 			
 			//negate use
 			if (!isTriggered(lifeResponses)){
 				inLifeLoop = false;
-				GrandpaMain.promptForever();
+				HaoGrandpaMain.promptForever();
 				}
 			}
 		}	
 	private void printResponse() {
 		if (lifeCount > 2){
 			int responseSelection = (int) (Math.random()* angryLifeResponses.length);
-			GrandpaMain.print(angryLifeResponses[responseSelection]);
+			HaoGrandpaMain.print(angryLifeResponses[responseSelection]);
 			inLifeLoop = false;
 			lifeCount = 0;
-			GrandpaMain.promptLife();
+			HaoGrandpaMain.promptLife();
 			inLifeLoop = false;
 		}
 		else {
 			int responseSelection = (int) (Math.random()* calmLifeResponses.length);
-			GrandpaMain.print(calmLifeResponses[responseSelection]);
+			HaoGrandpaMain.print(calmLifeResponses[responseSelection]);
 		}
 	}
 	public boolean isTriggered(String userInput) {
 		String [] triggers = {"life", "growing up"};
 		//idea:create a for loop to iterate
 		
-		if (GrandpaMain.findKeyword(userInput, "life", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "life", 0) >= 0){
 			return true;
 		}
-		if (GrandpaMain.findKeyword(userInput, "growing up", 0) >= 0){
+		if (HaoGrandpaMain.findKeyword(userInput, "growing up", 0) >= 0){
 			return true;
 		}
 		return false;
