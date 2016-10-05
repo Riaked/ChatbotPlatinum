@@ -3,7 +3,11 @@ package groupFiles;
 import java.util.Scanner;
 
 public class HaoGrandpaMain {
-
+	
+	public String [] jokePool = {"A broken pencil.", "Cows go.", "To", "Nanna"};
+	public String [] jokeResponses ={"Never mind, it's pointless", "No, cows go moo!", 
+			"You mean 'To whom'.", "Nanna your buisness!"};
+	
 	static String response;
 	static boolean inMainLoop;
 	static Scanner input;
@@ -11,6 +15,7 @@ public class HaoGrandpaMain {
 	static HaoGrandpaBot school;
 	static HaoGrandpaBot life;
 	static HaoGrandpaBot hello;
+	static String joke;
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
@@ -34,6 +39,16 @@ public class HaoGrandpaMain {
 	}
 	public static void promptLife(){
 		print("Sorry sonny, I've told you more than I can remember already");
+	}
+	public static void promptKnockknock(){
+		print("Wanna hear an old joke? Knock knock..");
+		joke = input.nextLine();
+		if (joke != "Who's there".toLowerCase()){
+			print("I can't tell you a joke if you interrupt me like that.");
+		}
+		else{
+			print();
+		}
 	}
 	public static void promptForever(){
 		inMainLoop = true;
@@ -117,6 +132,7 @@ public class HaoGrandpaMain {
 		school = new HaoGrandpaSchool();
 		life = new HaoGrandpaLife();
 		hello = new HaoGrandpaHello();
+		joke = "";
 	}
 	
 	public static void print(String s){

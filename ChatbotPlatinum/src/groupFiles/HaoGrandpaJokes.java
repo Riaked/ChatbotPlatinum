@@ -3,6 +3,10 @@ package groupFiles;
 public class HaoGrandpaJokes extends Object implements HaoGrandpaBot {
 	private boolean inJokeLoop;
 	
+	public String [] jokePool = {"A broken pencil.", "Cows go.", "To", "Nanna"};
+	public String [] jokeResponses ={"Never mind, it's pointless", "No, cows go moo!", 
+			"You mean 'To whom'.", "Nanna your buisness!"};
+	
 	private String jokesResponse;
 	String[] jokes = { };
 	public void talk(){
