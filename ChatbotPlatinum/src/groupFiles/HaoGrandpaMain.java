@@ -25,14 +25,41 @@ public class HaoGrandpaMain {
 	
 	public static void promptName(){
 		print("Ey there sonny, I'm GrandpaBot. What's your name?");
-		user = input.nextLine();
-		print("Good ta meet cha "+user+". How are ya doing?");
+		String user = input.nextLine();
+		char aChar = user.charAt(0);
+		double rand=Math.random();
+		int roll = (int) (3*rand);
+		if(roll == 0){
+			String newUser = user.replaceAll(user, aChar+"ob");
+			print("Good ta meet cha "+newUser+". How are ya doing?");
+		}
+		if(roll == 1){
+			String newUser = user.replaceAll(user, aChar+"ill");
+			print("Good ta meet cha "+newUser+". How are ya doing?");
+		}
+		if(roll > 1){
+			String newUser = user.replaceAll(user, aChar+"en");
+			print("Good ta meet cha "+newUser+". How are ya doing?");
+		}
 	}
 	public static void promptNameAgain(){
 		print("What did you say your name was again?");
-		user = input.nextLine();
-		print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+user+"?");
-		promptForever();
+		String user = input.nextLine();
+		char aChar = user.charAt(0);
+		double rand=Math.random();
+		int roll = (int) (3*rand);
+		if(roll == 0){
+			String newUser = user.replaceAll(user, aChar+"ob");
+			print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+newUser+"?");
+		}
+		if(roll == 1){
+			String newUser = user.replaceAll(user, aChar+"ill");
+			print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+newUser+"?");
+		}
+		if(roll > 1){
+			String newUser = user.replaceAll(user, aChar+"en");
+			print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+newUser+"?");
+		}
 	}
 	public static void promptLife(){
 		promptForever();
