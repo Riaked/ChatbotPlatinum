@@ -2,25 +2,38 @@ package groupFiles;
 
 public class HaoGrandpaJokes extends Object implements HaoGrandpaBot {
 	private boolean inJokeLoop;
+	private String jokeResponse;
 	
 	public String [] jokePool = {"A broken pencil.", "Cows go.", "To", "Nanna"};
 	public String [] jokeResponses ={"Never mind, it's pointless", "No, cows go moo!", 
 			"You mean 'To whom'.", "Nanna your buisness!"};
+	private int jokeCount;
 	
-	private String jokesResponse;
-	String[] jokes = { };
-	public void talk(){
+	public HaoGrandpaJokes(){
+		jokeCount = 0;
+	}
+	public void talk() {
 		inJokeLoop = true;
+		jokeCount = 0;
 		while (inJokeLoop){
-			HaoGrandpaMain.print("(Type 'quit' to go back.)");
-			jokesResponse = HaoGrandpaMain.promptInput();
-			if (jokesResponse.indexOf("quit") >= 0){
+			jokeCount++;
+			printResponse();//helper method
+			jokeResponse = HaoGrandpaMain.promptInput();
+			
+			//negate use
+			if (!isTriggered(jokeResponse)){
 				inJokeLoop = false;
 				HaoGrandpaMain.promptForever();
+				}
 			}
-			HaoGrandpaMain.print("");
+		}	
+	private void printResponse() {
+		if (jokeCount != 0){
+			int jokeOrder = 1;
+			HaoGrandpaMain.print(jokeResponses[jokeOrder]);
 			
 		}
+		
 	}
 	public boolean isTriggered(String userInput) {
 		String [] triggers = {"joke", "funny", "laugh"};

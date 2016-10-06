@@ -38,6 +38,7 @@ public class HaoGrandpaHello  extends Object implements HaoGrandpaBot{
 			inHelloLoop = false;
 			helloCount = 0;
 			HaoGrandpaMain.promptNameAgain();
+			inHelloLoop = false;
 		}
 		else {
 			int responseSelection = (int) (Math.random()* calmHelloResponses.length);

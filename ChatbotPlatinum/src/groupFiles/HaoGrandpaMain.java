@@ -4,10 +4,6 @@ import java.util.Scanner;
 
 public class HaoGrandpaMain {
 	
-	public String [] jokePool = {"A broken pencil.", "Cows go.", "To", "Nanna"};
-	public String [] jokeResponses ={"Never mind, it's pointless", "No, cows go moo!", 
-			"You mean 'To whom'.", "Nanna your buisness!"};
-	
 	static String response;
 	static boolean inMainLoop;
 	static Scanner input;
@@ -15,7 +11,7 @@ public class HaoGrandpaMain {
 	static HaoGrandpaBot school;
 	static HaoGrandpaBot life;
 	static HaoGrandpaBot hello;
-	static String joke;
+	static HaoGrandpaBot joke;
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
@@ -36,38 +32,37 @@ public class HaoGrandpaMain {
 		print("What did you say your name was again?");
 		user = input.nextLine();
 		print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+user+"?");
+		promptForever();
 	}
 	public static void promptLife(){
-		print("Sorry sonny, I've told you more than I can remember already");
-	}
-	public static void promptKnockknock(){
-		print("Wanna hear an old joke? Knock knock..");
-		joke = input.nextLine();
-		if (joke != "Who's there".toLowerCase()){
-			print("I can't tell you a joke if you interrupt me like that.");
-		}
-		else{
-			print();
-		}
+		promptForever();
 	}
 	public static void promptForever(){
 		inMainLoop = true;
 		while (inMainLoop){
 			response = promptInput();
-			if(findKeyword(response, "good", 0) >= 0 ){
+			if(findKeyword(response, "good", 0) >= 0 ) {
 				print("That's wonderful. So glad you feel good.");
 			}
-			else if(response.indexOf("life") >= 0){
+			else if((response.indexOf("life") >= 0) || (response.indexOf("growing up") >= 0)){
 				print("My life isn't that great to talk about but here goes");
 				inMainLoop = false;
 				life.talk();
 			}
-			else if(response.indexOf("hello") >= 0 ){
-				print("yes hello again sonny");
+			else if((response.indexOf("hello") >= 0) || (response.indexOf("hi") >= 0)
+					|| (response.indexOf("hey") >= 0)){
 				inMainLoop = false;
 				hello.talk();
 			}
-			
+			else if((response.indexOf("joke") >= 0) || (response.indexOf("funny") >= 0) 
+					|| (response.indexOf("laugh") >= 0)){
+				print("Knock Knock..");
+				inMainLoop = false;
+				joke.talk();
+			}
+			else if (findKeyword(response, "How are you?", 0) >= 0){
+				print("I am doing fine thanks for asking!");
+			}
 			else{
 				print("You sound like those damn Nazi's. Always talking gibberish.");
 			}
@@ -101,6 +96,7 @@ public class HaoGrandpaMain {
 				psn = searchString.indexOf(keyword, psn + 1);
 				System.out.println("Did not find "+keyword+", checking position "+psn);
 			}
+			
 		}
 		return psn;
 	}
@@ -129,10 +125,10 @@ public class HaoGrandpaMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		school = new HaoGrandpaSchool();
 		life = new HaoGrandpaLife();
 		hello = new HaoGrandpaHello();
-		joke = "";
+		joke = new HaoGrandpaJokes();
+		
 	}
 	
 	public static void print(String s){
