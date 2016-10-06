@@ -18,7 +18,6 @@ public class HaoGrandpaMain {
 		createFields();
 		String s1 = " ";
 		String s2 = "a";
-		System.out.println(s1.compareTo(s2)); 
 		promptName();
 		promptForever();
 	}
@@ -60,6 +59,7 @@ public class HaoGrandpaMain {
 			String newUser = user.replaceAll(user, aChar+"en");
 			print("Oh yeah, I do remember talking to a "+user+". How are you doing, "+newUser+"?");
 		}
+		promptForever();
 	}
 	public static void promptLife(){
 		promptForever();
@@ -72,7 +72,7 @@ public class HaoGrandpaMain {
 				print("That's wonderful. So glad you feel good.");
 			}
 			else if((response.indexOf("life") >= 0) || (response.indexOf("growing up") >= 0)){
-				print("My life isn't that great to talk about but here goes");
+				print("My life isn't that great to talk about but here goes..");
 				inMainLoop = false;
 				life.talk();
 			}
@@ -83,12 +83,22 @@ public class HaoGrandpaMain {
 			}
 			else if((response.indexOf("joke") >= 0) || (response.indexOf("funny") >= 0) 
 					|| (response.indexOf("laugh") >= 0)){
-				print("Knock Knock..");
-				inMainLoop = false;
-				joke.talk();
+				print("Oh sonny, I've forgotten all my jokes..");
 			}
 			else if (findKeyword(response, "How are you?", 0) >= 0){
 				print("I am doing fine thanks for asking!");
+			}
+			else if ((findKeyword(response, "politics", 0) >= 0) || (findKeyword(response, "political", 0) >= 0)
+					|| (findKeyword(response, "politic", 0) >= 0)){
+				print("The government is crazy nowadays! These candidates are gonna make this country go under, don't you think so?");
+				if ((findKeyword(response, "yes", 0) >0) || (findKeyword(response, "yup", 0) >0)
+						|| (findKeyword(response, "yeah", 0) >0) || (findKeyword(response, "yea", 0) >0)){
+					print("I remember when the country wasn't this bad. *sigh*");
+				}
+				else{
+					print("Goddamn crazy! Yer outta yer mind! It's people like you who make this country suffer! I remember when "
+							+ "the people made respectable votes and candidates..");
+				}
 			}
 			else{
 				print("You sound like those damn Nazi's. Always talking gibberish.");
@@ -100,28 +110,21 @@ public class HaoGrandpaMain {
 		searchString = searchString.trim();
 		searchString = searchString.toLowerCase();
 		keyword = keyword.toLowerCase();
-		System.out.println("The phrase is "+searchString);
-		System.out.println("The keyword is "+keyword);
 		int psn = searchString.indexOf(keyword);
-		System.out.println("The keyword was found at "+psn);
 		while (psn >= 0){
 			String before = " ";
 			String after = " ";
 			if (psn > 0){
 				before = searchString.substring(psn-1, psn);
-				System.out.println("The character before is "+before);
 				}
 			if (psn + keyword.length() < searchString.length()){
 				after = searchString.substring(psn+keyword.length(), psn+keyword.length() + 1);
-				System.out.println("The character after is " + after);
 			}
 			if (before.compareTo("a") < 0 && after.compareTo("a") < 0 && noNegations(searchString, psn)){
-				System.out.println("Found "+keyword+" at " + psn);
 				return psn;
 			}
 			else{
 				psn = searchString.indexOf(keyword, psn + 1);
-				System.out.println("Did not find "+keyword+", checking position "+psn);
 			}
 			
 		}
