@@ -66,7 +66,7 @@ public class GrandpaMain {
 		inMainLoop = true;
 		while (inMainLoop){
 			response = promptInput();
-			if(findKeyword(response, "good", 0) >= 0 ) {
+			if((findKeyword(response, "good", 0) >= 0 ) || (findKeyword(response, "fine", 0) >= 0 )) {
 				print("That's wonderful. So glad you feel good.");
 			}
 			else if((response.indexOf("life") >= 0) || (response.indexOf("growing up") >= 0)){
