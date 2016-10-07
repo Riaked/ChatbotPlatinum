@@ -16,8 +16,6 @@ public class GrandpaMain {
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
 		createFields();
-		String s1 = " ";
-		String s2 = "a";
 		promptName();
 		promptForever();
 	}
