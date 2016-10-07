@@ -2,16 +2,16 @@ package groupFiles;
 
 import java.util.Scanner;
 
-public class HaoGrandpaMain {
+public class GrandpaMain {
 	
 	static String response;
 	static boolean inMainLoop;
 	static Scanner input;
 	static String user;
-	static HaoGrandpaBot school;
-	static HaoGrandpaBot life;
-	static HaoGrandpaBot hello;
-	static HaoGrandpaBot joke;
+	static GrandpaBot school;
+	static GrandpaBot life;
+	static GrandpaBot hello;
+	static GrandpaBot joke;
 	
 	public static void main(String[] args) {
 		//demonstrateStringMethods();
@@ -23,22 +23,22 @@ public class HaoGrandpaMain {
 	}
 	
 	public static void promptName(){
-		print("Ey there sonny, I'm GrandpaBot. What's your name?");
+		print("Ey there sonny, the name's GrandpaBot. What's your name?");
 		String user = input.nextLine();
 		char aChar = user.charAt(0);
 		double rand=Math.random();
 		int roll = (int) (3*rand);
 		if(roll == 0){
 			String newUser = user.replaceAll(user, aChar+"ob");
-			print("Good ta meet cha "+newUser+". How are ya doing?");
+			print("Good ta meet cha "+newUser+". How ya doing?");
 		}
 		if(roll == 1){
 			String newUser = user.replaceAll(user, aChar+"ill");
-			print("Good ta meet cha "+newUser+". How are ya doing?");
+			print("Good ta meet cha "+newUser+". How ya doing?");
 		}
 		if(roll > 1){
 			String newUser = user.replaceAll(user, aChar+"en");
-			print("Good ta meet cha "+newUser+". How are ya doing?");
+			print("Good ta meet cha "+newUser+". How ya doing?");
 		}
 	}
 	public static void promptNameAgain(){
@@ -155,7 +155,7 @@ public class HaoGrandpaMain {
 	public static void createFields(){
 		input = new Scanner(System.in);
 		user = "";
-		life = new HaoGrandpaLife();
+		life = new SyedGrandpaLife();
 		hello = new HaoGrandpaHello();
 		joke = new HaoGrandpaJokes();
 		
