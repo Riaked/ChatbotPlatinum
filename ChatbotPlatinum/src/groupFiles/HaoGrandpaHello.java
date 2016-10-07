@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class HaoGrandpaHello  extends Object implements HaoGrandpaBot{
+public class HaoGrandpaHello  extends Object implements GrandpaBot{
 
 	private String helloResponse;
 	private boolean inHelloLoop;
@@ -21,12 +21,12 @@ public class HaoGrandpaHello  extends Object implements HaoGrandpaBot{
 		while (inHelloLoop){
 			helloCount++;
 			printResponse();//helper method
-			helloResponse = HaoGrandpaMain.promptInput();
+			helloResponse = GrandpaMain.promptInput();
 			
 			//negate use
 			if (!isTriggered(helloResponse)){
 				inHelloLoop = false;
-				HaoGrandpaMain.promptForever();
+				GrandpaMain.promptForever();
 				}
 			}
 		}	
@@ -34,27 +34,27 @@ public class HaoGrandpaHello  extends Object implements HaoGrandpaBot{
 	private void printResponse() {
 		if (helloCount > 3){
 			int responseSelection = (int) (Math.random()* angryHelloResponses.length);
-			HaoGrandpaMain.print(angryHelloResponses[responseSelection]);
+			GrandpaMain.print(angryHelloResponses[responseSelection]);
 			inHelloLoop = false;
 			helloCount = 0;
-			HaoGrandpaMain.promptNameAgain();
+			GrandpaMain.promptNameAgain();
 			inHelloLoop = false;
 		}
 		else {
 			int responseSelection = (int) (Math.random()* calmHelloResponses.length);
-			HaoGrandpaMain.print(calmHelloResponses[responseSelection]);
+			GrandpaMain.print(calmHelloResponses[responseSelection]);
 		}
 		
 	}
 	@Override
 	public boolean isTriggered(String userInput) {
-		if (HaoGrandpaMain.findKeyword(userInput, "hello", 0) >= 0){
+		if (GrandpaMain.findKeyword(userInput, "hello", 0) >= 0){
 			return true;
 		}
-		if (HaoGrandpaMain.findKeyword(userInput, "hi", 0) >= 0){
+		if (GrandpaMain.findKeyword(userInput, "hi", 0) >= 0){
 			return true;
 		}
-		if (HaoGrandpaMain.findKeyword(userInput, "hey", 0) >= 0){
+		if (GrandpaMain.findKeyword(userInput, "hey", 0) >= 0){
 			return true;
 		}
 		return false;

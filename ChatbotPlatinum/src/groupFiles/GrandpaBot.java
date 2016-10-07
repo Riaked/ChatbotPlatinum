@@ -1,6 +1,6 @@
 package groupFiles;
 
-public interface HaoGrandpaBot {
+public interface GrandpaBot {
 
 	public void talk();
 	public boolean isTriggered(String userInput);
